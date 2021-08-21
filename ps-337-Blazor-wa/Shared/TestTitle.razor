@@ -1,0 +1,26 @@
+﻿
+
+<div class="@className()">
+    <p>[@Title - @sayHeaderOrFooter()]</p>
+</div>
+
+
+@code {
+
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public string headerOrFooter { get; set; }
+
+    private string className()
+    {
+        return headerOrFooter == "h" ? "cssHeaderTitle" : "cssFooterTitle";
+    }
+
+    private string sayHeaderOrFooter()
+    {
+        return headerOrFooter == "h" ? "(Header)" : "(Footer)";
+    }
+
+}
